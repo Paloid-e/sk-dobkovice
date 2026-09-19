@@ -1,0 +1,44 @@
+{
+ "tiers": [
+  "Hlavní sponzor",
+  "Partneři"
+ ],
+ "sponsors": [
+  {
+   "name": "Technické služby Děčín a.s.",
+   "tier": "Hlavní sponzor",
+   "logo": "sponsors/technicke-sluzby-decin.jpg",
+   "url": "https://www.mariuspedersen.cz/provozovny/technicke-sluzby-decin-as"
+  },
+  {
+   "name": "Obec Dobkovice",
+   "tier": "Partneři",
+   "logo": "sponsors/obec-dobkovice.jpg"
+  },
+  {
+   "name": "MAXXWIN NUTRITION s.r.o.",
+   "tier": "Partneři",
+   "logo": "sponsors/maxxwin.jpg"
+  },
+  {
+   "name": "Rock Empire s.r.o.",
+   "tier": "Partneři",
+   "logo": "sponsors/rock-empire.jpg"
+  },
+  {
+   "name": "Eurex – Nákladní říční doprava",
+   "tier": "Partneři",
+   "logo": "sponsors/eurex.png"
+  },
+  {
+   "name": "NYYLO a.s.",
+   "tier": "Partneři",
+   "logo": "sponsors/nyylo.jpeg"
+  },
+  {
+   "name": "STIPULA",
+   "tier": "Partneři",
+   "logo": "sponsors/stipula.jpg"
+  }
+ ]
+}

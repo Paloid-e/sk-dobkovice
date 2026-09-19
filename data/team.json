@@ -1,0 +1,121 @@
+{
+ "season": "2026/2027",
+ "_stats": "Statistiky hráče (volitelné): \"stats\": {\"games\":0,\"minutes\":0,\"goals\":0,\"assists\":0,\"yellow\":0,\"red\":0}. Jakmile má aspoň jeden hráč stats, zobrazí se na stránce Tým tabulka statistik.",
+ "_positions": "position: B = brankář, O = obránce, Z = záložník, U = útočník, null = neuvedeno",
+ "staff": [
+  {
+   "role": "Hlavní trenér",
+   "name": "Radek Štol"
+  },
+  {
+   "role": "Asistent trenéra",
+   "name": "Zdeněk Štol"
+  },
+  {
+   "role": "Trenér brankářů",
+   "name": "Jan Kyral"
+  },
+  {
+   "role": "Vedoucí týmu",
+   "name": "Petr Štol, Matěj Tomášek"
+  }
+ ],
+ "players": [
+  {
+   "name": "Lukáš Bajer",
+   "position": null
+  },
+  {
+   "name": "Radek Bartoň",
+   "position": null
+  },
+  {
+   "name": "Lukáš Brandejs",
+   "position": null
+  },
+  {
+   "name": "Patrik Bucek",
+   "position": null
+  },
+  {
+   "name": "Jaromír Dyrynk",
+   "position": null
+  },
+  {
+   "name": "Pavel Hammer ml.",
+   "position": null
+  },
+  {
+   "name": "Matěj Hammerle",
+   "position": null
+  },
+  {
+   "name": "Milan Jaukl",
+   "position": null
+  },
+  {
+   "name": "Radim Krumpl",
+   "position": null
+  },
+  {
+   "name": "Jan Kyral",
+   "position": "B"
+  },
+  {
+   "name": "Michal Lánský",
+   "position": null
+  },
+  {
+   "name": "Jan Lukeš",
+   "position": null
+  },
+  {
+   "name": "Daniel Martínek",
+   "position": null
+  },
+  {
+   "name": "Jiří Měchura",
+   "position": "B"
+  },
+  {
+   "name": "Jiří Miksch",
+   "position": null
+  },
+  {
+   "name": "Lukáš Pešek",
+   "position": "B"
+  },
+  {
+   "name": "Nikolas Petrů",
+   "position": null
+  },
+  {
+   "name": "Dominik Plosza",
+   "position": null
+  },
+  {
+   "name": "Denis Roshi",
+   "position": null
+  },
+  {
+   "name": "Tomáš Seiler",
+   "position": null
+  },
+  {
+   "name": "Michal Štol",
+   "position": null
+  },
+  {
+   "name": "Patrik Šulc",
+   "position": null
+  },
+  {
+   "name": "Matěj Tomášek",
+   "position": null
+  },
+  {
+   "name": "Tomáš Zahradník",
+   "position": "B"
+  }
+ ]
+}

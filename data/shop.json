@@ -1,0 +1,22 @@
+{
+ "contact": "skdobkovicee@seznam.cz",
+ "items": [
+  {
+   "name": "Vlaječka – 80 let klubu",
+   "text": "Zlaté slavnostní provedení k 80. výročí.",
+   "price": 100,
+   "photo": "shop/vlajecka.jpg"
+  },
+  {
+   "name": "Šála",
+   "price": 250,
+   "photo": "shop/sala.jpg"
+  },
+  {
+   "name": "Kšiltovka",
+   "price": 300,
+   "photo": "shop/ksiltovka.jpg",
+   "soldOut": true
+  }
+ ]
+}

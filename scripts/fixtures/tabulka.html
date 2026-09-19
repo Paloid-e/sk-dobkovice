@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs">
+<head id="head"><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="-1" /><link rel="stylesheet" href="../css/base.css" type="text/css" media="screen, projection, tv" /><link rel="stylesheet" href="../css/print.css" type="text/css" media="print" /><link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="../css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" /><link id="Link1" rel="stylesheet" href="../css/facr-icons.css" type="text/css" media="screen, projection, tv" /><link rel="stylesheet" href="../css/facr.css" type="text/css" media="screen, projection, tv" /><link rel="stylesheet" href="../css/medium.css" media="screen, projection, tv" /><link href="../favicon.ico" rel="shortcut icon" type="image/ico" />
+
+    <!-- Favicons 
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png" /><link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png" /><link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png" />
+    -->
+
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=4" /><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" /><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4" /><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=4" />
+
+    <!--Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/apple-icon.png?v=4" /><link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png?v=4" /><link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png?v=4" /><link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png?v=4" /><link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png?v=4" /><link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png?v=4" /><link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png?v=4" /><link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png?v=4" /><link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png?v=4" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png?v=4" /><link rel="apple-touch-icon-precomposed" href="/apple-icon-precomposed.png?v=4" />
+
+    <!-- Android/Chrome -->
+    <link rel="manifest" href="/manifest.json?v=4" /><meta name="theme-color" content="#ffffff" />
+
+    <!--Microsoft -->
+    <meta name="msapplication-TileColor" content="#ffffff" /><meta name="msapplication-TileImage" content="/ms-icon-144x144.png?v=4" />
+
+    <!--iOS Web App -->
+    <meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="default" /><meta name="apple-mobile-web-app-title" content="FAČR IS" />
+
+    <script type="text/javascript">
+        var messageInfo = { show: false, title: 'Upozornění', msg: '', type: '' };
+        var messageEval = null;
+        var boxLocalSelected = null;
+
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-38697170-2', 'fotbal.cz');
+        ga('send', 'pageview');
+        
+        function setHeartbeat() {
+            setTimeout("heartbeat()", 300000); // every 5 min
+        }
+        function heartbeat() {
+            $.ajax({
+                url: facrConfig.rootUrl + 'refresh-state.aspx',
+            }).done(function (data) {
+                setHeartbeat();
+            });
+        }
+       
+    </script>
+<title>
+	IS FAČR
+</title></head>
+
+    
+<body class="admin fotbal">
+    <form method="post" action="./tabulky-souteze.aspx?req=6a5e3799-cfd0-4737-97ee-cd84691019b4&amp;sport=fotbal" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/public/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZIDoRmBQwaSDisu-WN8Sqs_xbMqkaDy_feThIg_-zTqT-8dHDQ2&amp;t=638901608248157332" type="text/javascript"></script>
+
+<script language='javascript'>var facrConfig = {rootUrl: '/public/', login: 0};</script>
+<script src="/public/ScriptResource.axd?d=uHIkleVeDJf4xS50Krz-yC783UW8rEYiC0clCiJqvfhGZ9WXriudPqwH2Wx_qSuctjZJsI9xGLWhC-4R3lgXwhlBg-Vr6Sh7KN1OVtFDWLLWBP6eqgHcWbGHQs8QgJBaTCkmW2LV9LHQCjuivr1FyDvnibU1&amp;t=5c0e0825" type="text/javascript"></script>
+<script src="/public/ScriptResource.axd?d=Jw6tUGWnA15YEa3ai3FadDrcf_2s1ZcoddR9IYIrxblDV07vtU_Tsk20HmdtJcQU348I5P6TRtHTxZtYfTGYX88U3gc7-XWEjBQ7P3OFl3lNoRmzYgvGJPPT4_g5bN0tvKjULS1PH-baaKODuKellkHDqik1&amp;t=5c0e0825" type="text/javascript"></script>
+<script src="../js/FixFocus.js" type="text/javascript"></script>
+<script src="../js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js" type="text/javascript"></script>
+<script src="../js/jquery.custom.select.min.js" type="text/javascript"></script>
+<script src="../js/jquery.numeric.js" type="text/javascript"></script>
+<script src="../js/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script>
+<script src="../js/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="../js/main.js" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D4F35BA8" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="TTJnBDI4XIVB0HOQa0EalDNOIsgZTxFAGscKUTvZIh0JNg5MnnVMhJMBt5J98SD0s3jNkiD+wz+V+1/GSu/TdN2gI8K0fkqASTThvCR7Roaq3FmUKyK4FcVgayWhamZHOO5cEdVLIeWU2VwtSGmJnMb14s0=" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'Form1', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        
+
+
+        <!-- Obal -->
+        <div class="outer">
+            <div class="outer2">
+                <div id="inner" class="inner with-bar" style="min-width: 1060px;">
+
+
+                    <!-- Hlavicka -->
+                    <div id="divHeader" class="header">
+                        
+      <div class="inset clearfix">          
+          
+          <select name="ctl00$TopMenu$listChangeSport" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$TopMenu$listChangeSport\&#39;,\&#39;\&#39;)&#39;, 0)" id="TopMenu_listChangeSport" title="Přepnout účet" class="change-sport" style="">
+	<option selected="selected" value="1">Fotbal</option>
+	<option value="2">Futsal</option>
+
+</select> 
+          <style>
+              .change-role {
+                  width:20px;display:inline;font-size:11px;
+                  background-color:#bcc9d5;
+                  z-index: 100;
+              }
+              .change-role option {
+                  font-size:15px;
+                  padding:5px; background-color:white;
+              }
+              .change-sport {
+                  display:inline-block;font-size:11px;
+                  background-color:#bcc9d5;
+                  position: absolute;
+                  left: 28px;
+                  top: 2px;
+                  font-size: 14px;
+                  background-color: white;
+                  padding: 2px 2px 1px 2px;
+              }
+              .header .title{ width: 240px;}
+              .logo { width: 74px; height: auto;
+                  position: relative; top: +15px;left: +5px;
+              }
+          </style>
+        <a href="../" id="TopMenu_A1"><img src="../img/logo.png" id="TopMenu_Img1" alt="FAČR - Informační systém" height="114" width="84" class="logo" /></a>
+        <div id="TopMenu_dvNotLoged" class="title">
+          <h3><a href="../" id="TopMenu_A2" style="color:White;text-decoration:none">Informační systém FAČR</a></h3> 
+          <p><a href="../LogIn.aspx" style="font-size:14px;color:White;">Přihlášení</a></p>        
+        </div>
+       
+       
+<style>
+    .header .title .admin-oddilu {display:inline;}
+</style>
+
+    
+
+       <ul class="menu clearfix">
+               
+           <li class="uvod"><a href="../?sport=fotbal" id="TopMenu_A0">Úvod</a></li>
+           
+           <li class="podatelna"><a href="https://is.fotbal.cz/navigation/documents?discipline=footballsport=fotbal" id="TopMenu_linkPodatelna">Podatelna</a></li>
+            
+           <li id="TopMenu_liLicencniSystem" class="licence"><a href="../kluby/licence-neprofi-kluby.aspx?sport=fotbal" id="TopMenu_aLicence">Hodnocení<br style="display:inline" />kvality klubů</a></li>
+
+           <li id="TopMenu_liSoutez" class="soutez"><a href="prehled-soutezi.aspx?sport=fotbal" id="TopMenu_aSouteze">Soutěže</a></li>
+           <li class="clenove"><a href="../clenove/databaze-clenu.aspx?sport=fotbal" id="TopMenu_A5">Databáze <br />členů</a></li>
+           <li class="hraci"><a href="https://is.fotbal.cz/public/hraci/hraci-prehled/?sport=fotbalsport=fotbal" id="TopMenu_liSeznamHracu" class="hraci v4">Databáze hráčů <br> (NOVĚ)</a></li>           
+           
+           <li id="TopMenu_liPlatba" class="platba"><a href="https://is.fotbal.cz/anonymous-payment?discipline=football" id="TopMenu_A7">Platba <br />členství</a></li>
+           
+                      
+       </ul>
+
+          
+      </div>
+
+
+           
+
+
+                    </div>
+                    <!-- / Hlavicka -->
+
+                    <hr />
+
+
+
+
+                    <!-- Obsah -->
+                    <div class="inner-content">
+                        
+                        
+                        
+                        
+<style>
+     
+        div.vysledky-tabulky {padding-top:20px}
+        .list.tabulky {box-shadow:none;margin-bottom:0px;padding:0px 5px 30px 5px;}
+        .form fieldset table.vysledky-tabulky {margin:0px;}
+        td.spravce {font-weight:bold;}
+        a.disabled{color:#a2a2a2}
+        
+        table.vysledky-tabulky{border-collapse:collapse;}
+        table.vysledky-tabulky td, table.vysledky-tabulky th {border:solid 1px black; padding:5px 5px 5px 5px}
+        .list table.vysledky-tabulky th.first, .list table.vysledky-tabulky td.first{border:solid 1px black;}
+        .list table.vysledky-tabulky th.last, .list table.vysledky-tabulky td.last{border:solid 1px black;}
+         table.vysledky-tabulky th {text-align:center !important}
+         table.vysledky-tabulky td {text-align:left !important;padding-left:5px !important;padding-right:5px !important}
+         table.vysledky-tabulky td.tab-item-cislo {text-align:center !important}
+         table.vysledky-tabulky td.tab-item-zapasu {text-align:center !important}
+         table.vysledky-tabulky td.tab-item-plus {text-align:center !important}
+         table.vysledky-tabulky td.tab-item-nula {text-align:center !important}
+         table.vysledky-tabulky td.tab-item-minus {text-align:center !important}
+         table.vysledky-tabulky td.tab-item-skore {text-align:center !important}
+         table.vysledky-tabulky td.tab-item-body  {text-align:center !important}
+         
+</style>
+
+       
+ <h1 class="nadpis-hlavni size-2">
+        9. liga Okresní soutěž dospělých
+        <span class="help-info size-2">
+            ročník 2026, A2A, Muži, číslo 2026421A2A<br />Muži 3. třída skupina A
+        </span>
+</h1>
+    
+ 
+    <div class="grid-row soutez-detail">
+        <div class="col combine f-left" style="width: 800px; min-width: 800px;">
+
+          
+                    <div id="MainContent_panelBody">
+	
+                        <div class="form soutez-detail">
+                              <h2>
+                                Tabulky soutěže
+
+
+                                
+
+                                <i style="float: right"></i></h2>
+
+                           
+
+
+                            <fieldset style="padding-bottom: 20px">
+                                <legend>Tabulky soutěže</legend>
+                          
+                                <div class='vysledky-tabulky'><h3>Tabulka celková</h3><div class='list tabulky'><table class='vysledky-tabulky'><tr><th>Rk.</th><th>Družstvo</th><th>Záp.</th><th>+</th><th>0</th><th>-</th><th>Skóre</th><th>Body</th><tr ><td class='tab-item-cislo'>1</td><td class='tab-item-druzstvo '>SK Dobkovice z.s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>3</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>16<span>:</span>5</td><td class='tab-item-body'>10</td></tr><tr ><td class='tab-item-cislo'>2</td><td class='tab-item-druzstvo '>TJ Lokomotiva Děčín - spolek </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>3</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>10<span>:</span>2</td><td class='tab-item-body'>10</td></tr><tr ><td class='tab-item-cislo'>3</td><td class='tab-item-druzstvo '>Fotbal klub Bynovec,z.s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>3</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>14<span>:</span>10</td><td class='tab-item-body'>9</td></tr><tr ><td class='tab-item-cislo'>4</td><td class='tab-item-druzstvo '>TJ Jiskra Staré Křečany, z.s./TJ Krásná Lípa, z.s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>2</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>8<span>:</span>4</td><td class='tab-item-body'>8</td></tr><tr ><td class='tab-item-cislo'>5</td><td class='tab-item-druzstvo '>FK Dolní Podluží, z. s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>11<span>:</span>10</td><td class='tab-item-body'>7</td></tr><tr ><td class='tab-item-cislo'>6</td><td class='tab-item-druzstvo '>TJ Spartak Jiříkov, z.s. "B"/FK Chřibská - spolek </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>11<span>:</span>10</td><td class='tab-item-body'>7</td></tr><tr ><td class='tab-item-cislo'>7</td><td class='tab-item-druzstvo '>SK Březiny z.s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>2</td><td class='tab-item-skore'>14<span>:</span>7</td><td class='tab-item-body'>6</td></tr><tr ><td class='tab-item-cislo'>8</td><td class='tab-item-druzstvo '>FK Malšovice, spolek "B" </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>1</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>2</td><td class='tab-item-skore'>8<span>:</span>10</td><td class='tab-item-body'>4</td></tr><tr ><td class='tab-item-cislo'>9</td><td class='tab-item-druzstvo '>FK Huntířov z.s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>2</td><td class='tab-item-minus'>2</td><td class='tab-item-skore'>6<span>:</span>12</td><td class='tab-item-body'>2</td></tr><tr ><td class='tab-item-cislo'>10</td><td class='tab-item-druzstvo '>SK Verneřice z.s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>3</td><td class='tab-item-skore'>10<span>:</span>15</td><td class='tab-item-body'>1</td></tr><tr ><td class='tab-item-cislo'>11</td><td class='tab-item-druzstvo '>FK Františkov nad Ploučnicí, z.s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>3</td><td class='tab-item-skore'>4<span>:</span>11</td><td class='tab-item-body'>1</td></tr><tr ><td class='tab-item-cislo'>12</td><td class='tab-item-druzstvo '>Sportovní klub Starý Šachov, z.s. </td><td class='tab-item-zapasu'>4</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>3</td><td class='tab-item-skore'>3<span>:</span>19</td><td class='tab-item-body'>1</td></tr></table></div><h3>Tabulka doma</h3><div class='list tabulky'><table class='vysledky-tabulky'><tr><th>Rk.</th><th>Družstvo</th><th>Záp.</th><th>+</th><th>0</th><th>-</th><th>Skóre</th><th>Body</th></tr><tr><td class='tab-item-cislo'>1</td><td class='tab-item-druzstvo'>TJ Jiskra Staré Křečany, z.s./TJ Krásná Lípa, z.s.</td><td class='tab-item-zapasu'>3</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>7<span>:</span>3</td><td class='tab-item-body'>7</td></tr><tr><td class='tab-item-cislo'>2</td><td class='tab-item-druzstvo'>SK Březiny z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>10<span>:</span>1</td><td class='tab-item-body'>6</td></tr><tr><td class='tab-item-cislo'>3</td><td class='tab-item-druzstvo'>SK Dobkovice z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>10<span>:</span>3</td><td class='tab-item-body'>6</td></tr><tr><td class='tab-item-cislo'>4</td><td class='tab-item-druzstvo'>TJ Spartak Jiříkov, z.s. "B"/FK Chřibská - spolek</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>8<span>:</span>4</td><td class='tab-item-body'>6</td></tr><tr><td class='tab-item-cislo'>5</td><td class='tab-item-druzstvo'>TJ Lokomotiva Děčín - spolek</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>1</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>3<span>:</span>1</td><td class='tab-item-body'>4</td></tr><tr><td class='tab-item-cislo'>6</td><td class='tab-item-druzstvo'>Fotbal klub Bynovec,z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>1</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>5<span>:</span>6</td><td class='tab-item-body'>3</td></tr><tr><td class='tab-item-cislo'>7</td><td class='tab-item-druzstvo'>FK Dolní Podluží, z. s.</td><td class='tab-item-zapasu'>1</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>1<span>:</span>1</td><td class='tab-item-body'>1</td></tr><tr><td class='tab-item-cislo'>8</td><td class='tab-item-druzstvo'>SK Verneřice z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>7<span>:</span>9</td><td class='tab-item-body'>1</td></tr><tr><td class='tab-item-cislo'>9</td><td class='tab-item-druzstvo'>FK Huntířov z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>1<span>:</span>4</td><td class='tab-item-body'>1</td></tr><tr><td class='tab-item-cislo'>10</td><td class='tab-item-druzstvo'>Sportovní klub Starý Šachov, z.s.</td><td class='tab-item-zapasu'>3</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>2</td><td class='tab-item-skore'>3<span>:</span>12</td><td class='tab-item-body'>1</td></tr><tr><td class='tab-item-cislo'>11</td><td class='tab-item-druzstvo'>FK Malšovice, spolek "B"</td><td class='tab-item-zapasu'>1</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>3<span>:</span>4</td><td class='tab-item-body'>0</td></tr><tr><td class='tab-item-cislo'>12</td><td class='tab-item-druzstvo'>FK Františkov nad Ploučnicí, z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>2</td><td class='tab-item-skore'>2<span>:</span>7</td><td class='tab-item-body'>0</td></tr></table></div><h3>Tabulka venku</h3><div class='list tabulky'><table class='vysledky-tabulky'><tr><th>Rk.</th><th>Družstvo</th><th>Záp.</th><th>+</th><th>0</th><th>-</th><th>Skóre</th><th>Body</th></tr><tr><td class='tab-item-cislo'>1</td><td class='tab-item-druzstvo'>TJ Lokomotiva Děčín - spolek</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>7<span>:</span>1</td><td class='tab-item-body'>6</td></tr><tr><td class='tab-item-cislo'>2</td><td class='tab-item-druzstvo'>Fotbal klub Bynovec,z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>9<span>:</span>4</td><td class='tab-item-body'>6</td></tr><tr><td class='tab-item-cislo'>3</td><td class='tab-item-druzstvo'>FK Dolní Podluží, z. s.</td><td class='tab-item-zapasu'>3</td><td class='tab-item-plus'>2</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>10<span>:</span>9</td><td class='tab-item-body'>6</td></tr><tr><td class='tab-item-cislo'>4</td><td class='tab-item-druzstvo'>SK Dobkovice z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>1</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>6<span>:</span>2</td><td class='tab-item-body'>4</td></tr><tr><td class='tab-item-cislo'>5</td><td class='tab-item-druzstvo'>FK Malšovice, spolek "B"</td><td class='tab-item-zapasu'>3</td><td class='tab-item-plus'>1</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>5<span>:</span>6</td><td class='tab-item-body'>4</td></tr><tr><td class='tab-item-cislo'>6</td><td class='tab-item-druzstvo'>TJ Jiskra Staré Křečany, z.s./TJ Krásná Lípa, z.s.</td><td class='tab-item-zapasu'>1</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>0</td><td class='tab-item-skore'>1<span>:</span>1</td><td class='tab-item-body'>1</td></tr><tr><td class='tab-item-cislo'>7</td><td class='tab-item-druzstvo'>FK Františkov nad Ploučnicí, z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>2<span>:</span>4</td><td class='tab-item-body'>1</td></tr><tr><td class='tab-item-cislo'>8</td><td class='tab-item-druzstvo'>FK Huntířov z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>5<span>:</span>8</td><td class='tab-item-body'>1</td></tr><tr><td class='tab-item-cislo'>9</td><td class='tab-item-druzstvo'>TJ Spartak Jiříkov, z.s. "B"/FK Chřibská - spolek</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>1</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>3<span>:</span>6</td><td class='tab-item-body'>1</td></tr><tr><td class='tab-item-cislo'>10</td><td class='tab-item-druzstvo'>SK Březiny z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>2</td><td class='tab-item-skore'>4<span>:</span>6</td><td class='tab-item-body'>0</td></tr><tr><td class='tab-item-cislo'>11</td><td class='tab-item-druzstvo'>SK Verneřice z.s.</td><td class='tab-item-zapasu'>2</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>2</td><td class='tab-item-skore'>3<span>:</span>6</td><td class='tab-item-body'>0</td></tr><tr><td class='tab-item-cislo'>12</td><td class='tab-item-druzstvo'>Sportovní klub Starý Šachov, z.s.</td><td class='tab-item-zapasu'>1</td><td class='tab-item-plus'>0</td><td class='tab-item-nula'>0</td><td class='tab-item-minus'>1</td><td class='tab-item-skore'>0<span>:</span>7</td><td class='tab-item-body'>0</td></tr></table></div></div>
+
+                              </fieldset>
+                            
+                        </div>
+
+                    
+</div>
+              
+
+        </div>
+        <div class="col combine" style="margin-left: 815px;">
+         
+<div class="popup box">
+             <div class="inset clearfix">
+                 
+                 <div id="MainContent_soutezeRozcestnik_panelDetail">
+	
+                 <h3 id="MainContent_soutezeRozcestnik_nadpisSouteze">Podrobnosti soutěže č. 2026421A2A</h3>
+
+                   <ul class="basic">
+                       
+                       
+
+                      <li>
+                         <a id="MainContent_soutezeRozcestnik_listHitparady" href="hitparady-souteze.aspx?req=6a5e3799-cfd0-4737-97ee-cd84691019b4"><b>Hitparády</b></a>
+                     </li>
+                     <li>
+                         <a id="MainContent_soutezeRozcestnik_linkZapasySouteze" href="detail-souteze.aspx?req=6a5e3799-cfd0-4737-97ee-cd84691019b4"><b>Utkání této soutěže podle kol</b></a>
+                     </li>
+                       <li>
+                         <a id="MainContent_soutezeRozcestnik_linkZapasySoutezePodrobne" href="../zapasy/prehled-zapasu.aspx?soutez=6a5e3799-cfd0-4737-97ee-cd84691019b4"><b>Podrobný přehled utkání této soutěže</b></a>
+                     </li>                     
+                      <li id="MainContent_soutezeRozcestnik_liTybulkySouteze">
+                         <a id="MainContent_soutezeRozcestnik_linkTybulkySouteze" href="tabulky-souteze.aspx?req=6a5e3799-cfd0-4737-97ee-cd84691019b4"><b>Tabulky této soutěže</b></a>
+                     </li>
+                       <li id="MainContent_soutezeRozcestnik_liStatHracu">
+                         <a id="MainContent_soutezeRozcestnik_linkTybulkyStat" href="../hraci/statistiky.aspx?req=6a5e3799-cfd0-4737-97ee-cd84691019b4"><b>Statistiky hráčů</b></a>
+                     </li>
+                              
+                 </ul>  
+                     
+</div>
+                 <h3>Rychlá navigace soutěžemi</h3>
+                 <ul class="basic">
+                     <li>
+                        <a href="prehled-soutezi.aspx"><b>Soutěže</b> - vyhledání a přehled soutěží</a>
+                     </li>
+                      <li>
+                        <a href="../zapasy/prehled-zapasu.aspx"><b>Utkání</b> - vyhledání a přehled utkání</a>
+                     </li>
+                     <li><strong>Výsledkový servis</strong> - vyhledejte požadovanou soutěž a otevřete její detail</li>
+                 </ul>                 
+             </div>
+             <span class="corner pos-side-left top"></span>
+         </div>
+
+     <div>
+
+             
+</div>
+        
+
+       
+        </div>
+       
+    </div>
+    
+
+
+                       
+
+                    </div>
+
+
+                    <!-- / Obsah -->
+
+                    <hr />
+
+                    <div id="divFooter" class="footer" style="">
+
+                        
+                        <div class="bg">
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/ClenstviFacr">FACEBOOK členství</a>
+                                    <a href="https://clenstvi.fotbal.cz">clenstvi.fotbal.cz</a>
+                                    <a href="https://www.fotbal.cz">fotbal.cz</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- / Paticka -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- / Obaly -->
+
+        <div id="dialog-msg" title="Info" style="display:none;">
+            <p style="padding-top: 20px; text-align: center; font-size: 14px" id="dialog-msg-inner"></p>
+        </div>
+
+        <script type="text/javascript" language="javascript">
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+            function EndRequestHandler(sender, args) {
+                if (args.get_error() != undefined) {
+                    var errorMessage;
+                    if (args.get_response().get_statusCode() == '200') {
+                        errorMessage = args.get_error().message;
+                    }
+                    else {
+                        errorMessage = 'Nespecifikovaná chyba. ';
+                    }
+                   
+                    args.set_errorHandled(true);
+                    alert('Omlouváme se, ale vyskytla se chyba. Je možné, že vám vypršela platnost přihlášení! Nyní budete přesměrování na https://is1.fotbal.cz!\r\n');
+                    //window.location = 'https://is.fotbal.cz';
+                   
+                }
+            }
+            if (facrConfig.login == 1) { setHeartbeat(); }
+        </script>
+    </form>
+</body>
+</html>
