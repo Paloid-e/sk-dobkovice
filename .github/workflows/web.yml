@@ -1,21 +1,18 @@
 name: Web
 
-# Sestaví web a nasadí ho na GitHub Pages.
-#  - push na main: jen build + deploy
-#  - sobota a neděle 19:30 UTC (21:30 SELČ / 20:30 SEČ), jednou denně: nejdřív stáhne
-#    výsledky a tabulku z IS FAČR, změněná data commitne, pak build + deploy
-#  - ručně: Actions → Web → Run workflow (chová se jako víkendový běh)
+# Sestaví web a nasadí ho na GitHub Pages — při pushi na main, nebo ručně
+# (Actions → Web → Run workflow). Žádné automatické stahování dat: výsledky a články
+# se aktualizují ručně (`node scripts/update.mjs` + commit), automatika poběží až
+# na oficiálním hostingu.
 #
 # Pages musí mít v Settings → Pages → Source nastaveno „GitHub Actions“.
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: "30 19 * * 6,0"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -32,20 +29,6 @@ jobs:
         with:
           node-version: 22
       - run: node --test scripts/site.test.mjs
-
-      - name: Stáhnout výsledky a tabulku
-        if: github.event_name != 'push'
-        run: |
-          node scripts/update.mjs
-          if git diff --quiet -- data/season.json; then
-            echo "Data beze změny."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Aktualizace výsledků a tabulky z fotbal.cz" -- data/season.json
-          git push
-
       - run: node scripts/build.mjs
       - uses: actions/upload-pages-artifact@v3
         with:

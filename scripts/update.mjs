@@ -1,6 +1,7 @@
 // Stáhne rozpis, výsledky a tabulku z IS FAČR (is.fotbal.cz — oficiální data fotbal.cz)
 // a uloží je do data/season.json. Web z nich skládá scripts/build.mjs.
-// Bez závislostí, Node 20+. Spouští .github/workflows/web.yml (so + ne večer).
+// Bez závislostí, Node 20+. Spouští se ručně (pak commit + push); automaticky poběží
+// až na oficiálním hostingu — z GitHub Actions se na is.fotbal.cz nejde připojit.
 //
 //   node scripts/update.mjs            stáhne data a zapíše data/season.json + data/news.json
 //   node scripts/update.mjs --dry      jen vypíše, co našel
@@ -118,10 +119,24 @@ export function parseNews(html) {
 
 /* ---------- běh ---------- */
 
-async function get(url) {
-  const res = await fetch(url, { headers: { "User-Agent": USER_AGENT, "Accept-Language": "cs" } });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
-  return res.text();
+// Dva pokusy s časovým limitem; chyba řekne, která adresa selhala a proč
+// (fetch sám hlásí jen „fetch failed“, důvod je až v err.cause).
+async function get(url, tries = 2) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { "User-Agent": USER_AGENT, "Accept-Language": "cs" },
+        signal: AbortSignal.timeout(30_000),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+      return await res.text();
+    } catch (err) {
+      const why = [err.message, err.cause?.code, err.cause?.message].filter(Boolean).join(" · ");
+      if (attempt >= tries) throw new Error(`${new URL(url).host}: ${why}`);
+      console.warn(`${new URL(url).host}: ${why} — zkouším znovu`);
+      await new Promise((r) => setTimeout(r, 5000));
+    }
+  }
 }
 
 const DATA = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "data");
