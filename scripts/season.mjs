@@ -120,16 +120,17 @@ export function render(s, root = "") {
 
   /* příští zápas */
   if (next) {
-    const crest = (t) => (t.logo ? `<img class="crest" src="${root}${esc(t.logo)}" alt="">\n        ` : "");
+    // logo + název jako jeden nedělitelný celek — zalomit se smí jen kolem „vs“
+    const side = (t) => `<span class="side">${t.logo ? `<img class="crest" src="${root}${esc(t.logo)}" alt="">` : ""}${esc(t.table)}</span>`;
     const home = team(next.home), away = team(next.away);
     const [y, mo, d] = next.kickoff.slice(0, 10).split("-").map(Number);
     const day = DAYS[new Date(Date.UTC(y, mo - 1, d)).getUTCDay()];
     blocks["next-match"] = `    <div>
       <p class="eyebrow">Příští zápas · ${next.round}. kolo</p>
       <div class="match-teams">
-        ${crest(home)}${esc(home.table)}
+        ${side(home)}
         <span class="vs">vs</span>
-        ${crest(away)}${esc(away.table)}
+        ${side(away)}
       </div>
       <p class="match-meta">${day} <b>${czDate(next.kickoff)}</b> · výkop <b>${next.kickoff.slice(11, 16)}</b>${next.pitch ? ` · hřiště ${esc(next.pitch)}` : ""}</p>
     </div>

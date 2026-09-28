@@ -383,6 +383,10 @@ nav a[aria-current="page"]::after { transform: scaleX(1) skewX(-30deg); }
 @media (max-width: 900px) { .match-in { grid-template-columns: 1fr; } }
 
 .match-teams {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35em 0;
   font-family: var(--display);
   font-weight: 400;
   font-size: clamp(1.5rem, 3.8vw, 2.5rem);
@@ -390,10 +394,17 @@ nav a[aria-current="page"]::after { transform: scaleX(1) skewX(-30deg); }
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
+/* tým = logo + název pohromadě; dlouhý název se láme uvnitř, logo zůstává u něj */
+.match-teams .side {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  text-wrap: balance;
+}
 .match-teams .crest {
   width: 1.3em; height: 1.3em;
+  flex: none;
   object-fit: contain;
-  vertical-align: -0.28em;
   border-radius: 0.12em;
 }
 .match-teams .vs {
@@ -405,7 +416,7 @@ nav a[aria-current="page"]::after { transform: scaleX(1) skewX(-30deg); }
   font-weight: 700;
   padding: 0.25em 0.7em;
   margin: 0 0.55em;
-  transform: skewX(-12deg) translateY(-0.35em);
+  transform: skewX(-12deg);
 }
 .match-meta {
   margin-top: 0.9rem;
